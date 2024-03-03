@@ -1,0 +1,47 @@
+<odoo>
+    <data>
+        <!-- create Tree View First to show data come from model department -->
+        <record id="hms_department_tree_view" model="ir.ui.view">
+            <field name="name">hms_department_tree_view</field>
+            <field name="model">hms.department</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="capacity"/>
+                    <field name="is_opened"/>
+                    <field name="patient_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- create Form View secondly to take data from EndUser -->
+
+        <record id="hms_form_view" model="ir.ui.view">
+            <field name="name">hms form view</field>
+            <field name="model">hms.department</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="capacity"/>
+                            <field name="is_opened"/>
+                            <field name="patient_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hms_departments_action" model="ir.actions.act_window">
+            <field name="name">Departments</field>
+            <field name="res_model">hms.department</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="hms_department_menu"
+                  name="Departments"
+                  parent="hms_root_menu"
+                  action="hms_departments_action"/>
+    </data>
+</odoo>

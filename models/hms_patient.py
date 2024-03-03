@@ -3,6 +3,7 @@ from odoo import models, fields, api
 
 class HmsPatient(models.Model):
     _name = 'hms.patient'
+    _description = 'HMS Patient'
     _rec_name = 'first_name'
 
     first_name = fields.Char()
@@ -15,3 +16,5 @@ class HmsPatient(models.Model):
     image = fields.Image()
     address = fields.Text()
     age = fields.Integer()
+    department_id = fields.Many2one('hms.department')
+    capacity = fields.Integer(related='department_id.capacity')

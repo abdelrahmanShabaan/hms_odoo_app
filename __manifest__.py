@@ -8,9 +8,11 @@
     'depends': ['base'],
     'application': True,
     'data': [
-        'views/hms_patient.xml',
-        'views/patient_menus.xml',
+        'views/patient/hms_patient.xml',
+        'views/patient/patient_menus.xml',
+        'views/department/hms_department.xml',
+        # 'views/department/department_menus.xml',
         # # 'security/ir.model.access.csv',
-        # 'views/base_menus.xml',
+
     ]
 }
