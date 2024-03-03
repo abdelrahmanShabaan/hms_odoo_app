@@ -15,6 +15,11 @@
                     <field name="PCR"/>
                     <field name="image"/>
                     <field name="address"/>
+                    <field name="age"/>
+                    <field name="state"/>
+                    <field name="doctors_id"/>
+                    <field name="department_id"/>
+                    <field name="log_history_id"/>
                 </tree>
             </field>
         </record>
@@ -36,6 +41,11 @@
                             <field name="PCR"/>
                             <field name="image"/>
                             <field name="address"/>
+                            <field name="age"/>
+                            <field name="state"/>
+                            <field name="doctors_id"/>
+                            <field name="department_id"/>
+                            <field name="log_history_id"/>
                         </group>
                     </sheet>
                 </form>

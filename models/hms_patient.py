@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from datetime import date
 
 
 class HmsPatient(models.Model):
@@ -19,3 +20,42 @@ class HmsPatient(models.Model):
     department_id = fields.Many2one('hms.department')
     capacity = fields.Integer(related='department_id.capacity')
     doctors_id = fields.Many2many('hms.doctors')
+    state = fields.Selection(
+        [('undetermined', 'Undetermined'), ('good', 'Good'), ('fair', 'Fair'), ('serious', 'Serious'), ],
+        default='undetermined')
+    log_history_id = fields.One2many('hms.logging', 'patient_id')
+
+    @api.onchange('age')
+    def pcr_check(self):
+        if self.age < 30:
+            self.PCR = True
+            return {
+                'warning': {
+                    'title': 'PCR',
+                    'message': 'pcr has been checked.'
+                }
+            }
+
+    @api.onchange('birth_date')
+    def _age_birth_date(self):
+        if self.birth_date:
+            self.age = date.today().year - self.birth_date.year
+
+    def patient_statue(self):
+        if self.state == 'undetermined':
+            self.state = 'good'
+        elif self.state == 'good':
+            self.state = 'fair'
+        elif self.state == 'fair':
+            self.state = 'serious'
+        elif self.state == 'serious':
+            self.state = 'undetermined'
+        self.create_log()
+
+    def create_log(self):
+        self.env['hms.logging'].create({
+            'created_by': self.first_name,
+            'date': date.today(),
+            'description': f'State changed to {self.state} ',
+            'patient_id': self.id
+        })

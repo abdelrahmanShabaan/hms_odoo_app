@@ -15,7 +15,6 @@
         </record>
 
         <!-- create Form View secondly to take data from EndUser -->
-
         <record id="hms_form_view" model="ir.ui.view">
             <field name="name">hms form view</field>
             <field name="model">hms.department</field>
