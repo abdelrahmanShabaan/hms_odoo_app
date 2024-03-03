@@ -6,6 +6,6 @@
         <menuitem id="hms_menu"
                       name="Patient"
                       parent="hms_root_menu"
-                      action="hms_patient_action"/>
+                      action="hms_action"/>
 
 </odoo>
