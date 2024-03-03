@@ -1,0 +1,51 @@
+<odoo>
+    <data>
+        <!-- create Tree View First to show data come from model patient -->
+        <record id="hms_patient_tree_view" model="ir.ui.view">
+            <field name="name">hms_patient_tree_view</field>
+            <field name="model">hms.patient</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="first_name"/>
+                    <field name="last_name"/>
+                    <field name="birth_date"/>
+                    <field name="history"/>
+                    <field name="CR_ratio"/>
+                    <field name="blood_type"/>
+                    <field name="PCR"/>
+                    <field name="image"/>
+                    <field name="address"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- create Form View secondly to take data from EndUser -->
+        <record id="hms_patient_form_view" model="ir.ui.view">
+            <field name="name">hms form view</field>
+            <field name="model">hms.patient</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                            <field name="birth_date"/>
+                            <field name="history"/>
+                            <field name="CR_ratio"/>
+                            <field name="blood_type"/>
+                            <field name="PCR"/>
+                            <field name="image"/>
+                            <field name="address"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="hms_patient_action" model="ir.actions.act_window">
+            <field name="name">HMS</field>
+            <field name="res_model">hms.patient</field>
+        </record>
+    </data>
+</odoo>

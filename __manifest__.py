@@ -8,7 +8,8 @@
     'depends': ['base'],
     'application': True,
     'data': [
-        # 'views/ticket.xml',
+        'views/hms_patient.xml',
+        'views/patient_menus.xml',
         # # 'security/ir.model.access.csv',
         # 'views/base_menus.xml',
     ]
