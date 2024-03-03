@@ -18,3 +18,4 @@ class HmsPatient(models.Model):
     age = fields.Integer()
     department_id = fields.Many2one('hms.department')
     capacity = fields.Integer(related='department_id.capacity')
+    doctors_id = fields.Many2many('hms.doctors')

@@ -14,6 +14,8 @@
         # 'views/department/department_menus.xml',
         'views/Doctors/hms_doctors.xml',
         # 'views/Doctors/doctors_menus.xml',
+        'views/LogHistory/hms_logging.xml',
+        # 'views/LogHistory/history_menus.xml',
         'security/ir.model.access.csv',
 
     ]
