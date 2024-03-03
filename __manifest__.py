@@ -12,7 +12,7 @@
         'views/patient/patient_menus.xml',
         'views/department/hms_department.xml',
         # 'views/department/department_menus.xml',
-        # # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
 
     ]
 }
