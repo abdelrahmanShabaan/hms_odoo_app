@@ -1,5 +1,7 @@
 from odoo import models, fields, api
 from datetime import date
+import re
+from odoo.exceptions import ValidationError, UserError
 
 
 class HmsPatient(models.Model):
@@ -9,6 +11,7 @@ class HmsPatient(models.Model):
 
     first_name = fields.Char()
     last_name = fields.Char()
+    email = fields.Char()
     birth_date = fields.Date()
     history = fields.Html()
     CR_ratio = fields.Float()
@@ -40,6 +43,26 @@ class HmsPatient(models.Model):
     def _age_birth_date(self):
         if self.birth_date:
             self.age = date.today().year - self.birth_date.year
+
+    @api.onchange('email')
+    def validation_email(self):
+        if self.email:
+            match = re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', self.email)
+            if match is None:
+                raise ValidationError('this Email Is Not Valid')
+
+    _sql_constraints = [
+        ('unique_email', 'UNIQUE(email)', 'Email must be unique.'), ]
+
+    @api.model
+    def create(self, vals_list):
+        if not vals_list['email']:
+            vals_list['email'] = f"{vals_list['first_name']}@gmail.com"
+        patient = self.search([('email', '=', vals_list['email'])])
+        if patient:
+            raise UserError(f"{vals_list['email']} already exists")
+
+        return super().create(vals_list)
 
     def patient_statue(self):
         if self.state == 'undetermined':
