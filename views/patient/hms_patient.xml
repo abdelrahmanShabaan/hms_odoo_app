@@ -8,6 +8,7 @@
                 <tree>
                     <field name="first_name"/>
                     <field name="last_name"/>
+                    <field name="email"/>
                     <field name="birth_date"/>
                     <field name="history"/>
                     <field name="CR_ratio"/>
@@ -34,6 +35,7 @@
                         <group>
                             <field name="first_name"/>
                             <field name="last_name"/>
+                            <field name="email"/>
                             <field name="birth_date"/>
                             <field name="history"/>
                             <field name="CR_ratio"/>
