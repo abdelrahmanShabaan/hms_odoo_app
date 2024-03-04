@@ -1,5 +1,6 @@
 <odoo>
     <data>
+        <!-- Groups and Rules for HMS Module -->
         <record id="hms_group_category" model="ir.module.category">
             <field name="name">HMS Groups</field>
         </record>

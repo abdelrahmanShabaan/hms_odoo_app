@@ -1,12 +1,11 @@
 <odoo>
 
     <menuitem id="hms_root_menu"
-              name="HMS Patient"/>
+              name="HMS Patient"
+                  web_icon="hms_app,static/image/hms.png"/>
 
     <menuitem id="hms_menu"
               name="Patient"
               parent="hms_root_menu"
               action="hms_action"/>
-
-
 </odoo>
