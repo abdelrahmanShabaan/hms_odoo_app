@@ -14,7 +14,7 @@
                     <field name="CR_ratio"/>
                     <field name="blood_type"/>
                     <field name="PCR"/>
-                    <field name="image"/>
+                    <field name="image" string="Profile Picture"/>
                     <field name="address"/>
                     <field name="age"/>
                     <field name="state"/>
@@ -33,20 +33,20 @@
                 <form>
                     <sheet>
                         <group>
-                            <field name="first_name"/>
-                            <field name="last_name"/>
-                            <field name="email"/>
+                            <field name="first_name" required="True"/>
+                            <field name="last_name" required="True"/>
+                            <field name="email" required="True"/>
                             <field name="birth_date"/>
                             <field name="history"/>
                             <field name="CR_ratio"/>
                             <field name="blood_type"/>
                             <field name="PCR"/>
-                            <field name="image"/>
+                            <field name="image" widget="image"/>/>
                             <field name="address"/>
                             <field name="age"/>
                             <field name="state"/>
                             <field name="doctors_id"/>
-                            <field name="department_id"/>
+                            <field name="department_id" domain="[('is_opened','=','False')]"/>
                             <field name="log_history_id"/>
                         </group>
                     </sheet>

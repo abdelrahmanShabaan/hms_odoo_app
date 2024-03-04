@@ -1,0 +1,33 @@
+<odoo>
+    <data>
+        <!-- Groups and Rules for HMS Module -->
+        <record id="hms_group_category" model="ir.module.category">
+            <field name="name">HMS Groups</field>
+        </record>
+
+        <record id="hms_user_group" model="res.groups">
+            <field name="name">HMS User</field>
+            <field name="category_id" ref="hms_group_category"/>
+        </record>
+
+        <record id="hms_manager_group" model="res.groups">
+            <field name="name">HMS Manager</field>
+            <field name="category_id" ref="hms_group_category"/>
+        </record>
+
+        <record id="hms_user_own_patient_rule" model="ir.rule">
+            <field name="name">hms user own patients</field>
+            <field name="model_id" ref="model_hms_patient"/>
+            <field name="groups" eval="[(4,ref('hms_user_group'))]"/>
+            <field name="domain_force">[('create_uid','=',user.id)]</field>
+        </record>
+
+        <record id="hms_manager_patient_rule" model="ir.rule">
+            <field name="name">hms manager patients</field>
+            <field name="model_id" ref="model_hms_patient"/>
+            <field name="groups" eval="[(4,ref('hms_manager_group'))]"/>
+            <!-- Adjust the domain_force to allow managers to view all patients -->
+            <field name="domain_force">[(1,'=',1)]</field>
+        </record>
+    </data>
+</odoo>

@@ -1,5 +1,11 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-hms_user_access_patient,Access Hms HmsPatient User,model_hms_patient,,1,1,1,1
-hms_user_access_dapartment,Access Hms HmsDepartment User,model_hms_department,,1,1,1,1
-hms_user_access_doctors,Access Hms HmsDoctors User,model_hms_doctors,,1,1,1,1
-hms_user_access_logging,Access Hms LogHistory User,model_hms_logging,,1,1,1,1
+hms_user_access_patient,Hms user access HmsPatient,model_hms_patient,hms_app.hms_user_group,1,0,0,0
+hms_user_access_dapartment,Hms user access  HmsDepartment ,model_hms_department,hms_app.hms_user_group,1,0,0,0
+hms_user_access_doctors,Hms user access  HmsDoctors ,model_hms_doctors,hms_app.hms_user_group,1,0,0,0
+hms_user_access_logging,Hms user access  LogHistory ,model_hms_logging,hms_app.hms_user_group,1,1,1,0
+
+hms_user_access_patient,Hms manager access HmsPatient,model_hms_patient,hms_app.hms_manager_group,1,1,1,1
+hms_user_access_dapartment,Hms manager access HmsDepartment,model_hms_department,hms_app.hms_manager_group,1,1,1,1
+hms_user_access_doctors,Hms manager access HmsDoctors,model_hms_doctors,hms_app.hms_manager_group,1,1,1,1
+hms_user_access_logging,Hms user access LogHistory,model_hms_logging,hms_app.hms_manager_group,1,1,1,1
+

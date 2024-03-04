@@ -1,7 +1,7 @@
 from odoo import models, fields, api
-from datetime import date
 import re
 from odoo.exceptions import ValidationError, UserError
+from datetime import date
 
 
 class HmsPatient(models.Model):
@@ -23,21 +23,11 @@ class HmsPatient(models.Model):
     department_id = fields.Many2one('hms.department')
     capacity = fields.Integer(related='department_id.capacity')
     doctors_id = fields.Many2many('hms.doctors')
+    customer_id = fields.Many2one('res.partner')
+    log_history_id = fields.One2many('hms.logging', 'patient_id')
     state = fields.Selection(
         [('undetermined', 'Undetermined'), ('good', 'Good'), ('fair', 'Fair'), ('serious', 'Serious'), ],
         default='undetermined')
-    log_history_id = fields.One2many('hms.logging', 'patient_id')
-
-    @api.onchange('age')
-    def pcr_check(self):
-        if self.age < 30:
-            self.PCR = True
-            return {
-                'warning': {
-                    'title': 'PCR',
-                    'message': 'pcr has been checked.'
-                }
-            }
 
     @api.onchange('birth_date')
     def _age_birth_date(self):
@@ -82,3 +72,14 @@ class HmsPatient(models.Model):
             'description': f'State changed to {self.state} ',
             'patient_id': self.id
         })
+
+    @api.onchange('age')
+    def pcr_check(self):
+        if self.age < 30:
+            self.PCR = True
+            return {
+                'warning': {
+                    'title': 'PCR',
+                    'message': 'pcr has been checked.'
+                }
+            }
