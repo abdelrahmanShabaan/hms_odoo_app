@@ -1,6 +1,5 @@
 <odoo>
     <data>
-        <!-- Groups and Rules for HMS Module -->
         <record id="hms_group_category" model="ir.module.category">
             <field name="name">HMS Groups</field>
         </record>
@@ -26,7 +25,6 @@
             <field name="name">hms manager patients</field>
             <field name="model_id" ref="model_hms_patient"/>
             <field name="groups" eval="[(4,ref('hms_manager_group'))]"/>
-            <!-- Adjust the domain_force to allow managers to view all patients -->
             <field name="domain_force">[(1,'=',1)]</field>
         </record>
     </data>

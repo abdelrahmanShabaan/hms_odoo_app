@@ -8,7 +8,7 @@
     'depends': ['base'],
     'application': True,
     'data': [
-        'security/security.xml',
+        'security/groups.xml',
         'security/ir.model.access.csv',
         'views/patient/hms_patient.xml',
         'views/patient/patient_menus.xml',

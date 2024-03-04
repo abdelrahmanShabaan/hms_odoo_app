@@ -6,9 +6,9 @@
             <field name="model">hms.doctors</field>
             <field name="arch" type="xml">
                 <tree>
+                    <field name="image" widget="image"/>
                     <field name="first_name"/>
                     <field name="last_name"/>
-                    <field name="image"/>
                 </tree>
             </field>
         </record>
