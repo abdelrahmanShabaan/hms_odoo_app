@@ -1,7 +1,7 @@
 <h3>HMS-Odoo-Application</h3>
 <p>Custom application for hospital management system made as project of odoo subject in ITI-Information Technology Institute with my lovely instructor Eng.Mohamed naser the best Odoo Developer in the world.</p>
 <h4>Screen for list of Patient:</h4>
-<p>Here I Made modules with Patients and link with another modules of hospital like doctors and departments.</p>
+<p>Here I Made modules with Patients and link with another modules of hospital like doctors and departments.</p> 
 
 ![Screenshot from 2024-03-03 19-03-10](https://github.com/abdelrahmanShabaan/hms_odoo_app/assets/48605080/5a2da62b-f2c1-4043-bbda-164cf245444c)
 
