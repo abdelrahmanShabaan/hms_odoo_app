@@ -23,3 +23,4 @@
 <p>Here I Made Reports with XML and Custom Design with Web-pdf to give the Patients report of Diagnosis report of their health.</p>
 
 ![Screenshot from 2024-03-05 01-02-53](https://github.com/abdelrahmanShabaan/hms_odoo_app/assets/48605080/896ff314-3cc0-4756-9f72-c64bf5f15e8e)
+ 
